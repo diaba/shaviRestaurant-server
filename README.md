@@ -1,11 +1,14 @@
 
 <h1 align="center">Capstone Project idea</h1>
-##Repo for backend
-git@github.com:diaba/shaviRestaurant-server.git
-##Repo for frontend
-git@github.com:diaba/shaviRestaurant-client.git
-Description
 
+
+
+#Repos
+- 👨‍💻 Backend  [here](git@github.com:diaba/shaviRestaurant-client.git)
+- 👨‍💻 Frontend  [here](git@github.com:diaba/shaviRestaurant-server.git)
+
+
+#Description
 Shavi’s Restaurant is an app that allows Shavi’s Restaurant customers to view the restaurant menu. They also can order a meal and choose the deliver method that can be carryout or delivery.
 
 #User stories
@@ -23,26 +26,15 @@ Shavi’s Restaurant is an app that allows Shavi’s Restaurant customers to vie
 
 #ERD
 
-![ERD Image](https://raw.githubusercontent.com/Kieran815/unit-2-project/main/banking%20app.drawio.png "Project Start ERD")
+![ERD Image](https://github.com/diaba/shaviRestaurant-server/blob/main/ShaviDb.drawio.png?raw=true "Project ERD")
 
 #Wireframes
 ##Home
-![home Image](https://github.com/diaba/shaviRestaurant-client/blob/main/wireframes/Home%20-1.png "Project wireframe")
+![home Image](https://github.com/diaba/shaviRestaurant-client/blob/main/wireframes/Home%20-%20item%201%20%E2%80%93%201.png?raw=true "Project wireframe")
 ##Checkout
-![checkout Image]( https://github.com/diaba/shaviRestaurant-client/blob/main/wireframes/Home%20-%20Checkout.png "Project Start ERD")
+![checkout Image]( https://github.com/diaba/shaviRestaurant-client/blob/main/wireframes/Home%20-%20Checkout.png?raw=true "Project Start ERD")
 ##Menu
-![menu Image](https://github.com/diaba/shaviRestaurant-client/blob/main/wireframes/Home%20-%20items%201.png "Project wareframe")
+![menu Image](https://github.com/diaba/shaviRestaurant-client/blob/main/wireframes/Home%20-%20items%201.png?raw=true "Project wareframe")
 
-
-
-
-
-
-
-Home
-
-Checkout
-
-Menu
 
  
