@@ -4,8 +4,8 @@
 
 
 #Repos
-- 👨‍💻 Backend  [here](git@github.com:diaba/shaviRestaurant-client.git)
-- 👨‍💻 Frontend  [here](git@github.com:diaba/shaviRestaurant-server.git)
+- 👨‍💻 Backend  [here](git@github.com:diaba/shaviRestaurant-server.git)
+- 👨‍💻 Frontend  [here](git@github.com:diaba/shaviRestaurant-client.git)
 
 
 #Description
