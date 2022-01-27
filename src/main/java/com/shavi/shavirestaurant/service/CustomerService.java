@@ -53,7 +53,7 @@ public class CustomerService {
         return customerRepository.findCustomerByEmail(email);
     }
     /**
-     * <h1> Create User </h1>
+     * <h1> Create customer </h1>
      * <p>Check if the customer does not exist</p>
      * @param customerObject
      * @return
@@ -70,7 +70,7 @@ public class CustomerService {
     }
 
     /**
-     * <h1>Login the user</h1>
+     * <h1>Login the customer</h1>
      * @param loginRequest
      * @return
      */
