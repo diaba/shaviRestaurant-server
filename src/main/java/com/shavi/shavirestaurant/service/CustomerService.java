@@ -1,20 +1,24 @@
 package com.shavi.shavirestaurant.service;
 
 import com.shavi.shavirestaurant.exception.InformationExistsException;
+import com.shavi.shavirestaurant.exception.InformationNotFoundException;
 import com.shavi.shavirestaurant.model.Customer;
 import com.shavi.shavirestaurant.model.request.LoginRequest;
 import com.shavi.shavirestaurant.model.response.LoginResponse;
 import com.shavi.shavirestaurant.repository.CustomerRepository;
 import com.shavi.shavirestaurant.security.JWTUtils;
+import com.shavi.shavirestaurant.security.MyUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 @Service
@@ -81,5 +85,35 @@ public class CustomerService {
         final String jwt = jwtUtils.generateToken(userDetails);
         return ResponseEntity.ok(new LoginResponse(jwt));
     }
+
+    /**
+     *
+     * @return
+     */
+    public List<Customer> getAllCustomer(){
+        return customerRepository.findAll();
+    }
+
+    /**
+     *
+     * @param customerId
+     * @param customerObject
+     * @return
+     */
+    public Customer updateCustomer(Long customerId, Customer customerObject){
+        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Customer customer = customerRepository.findCustomerById(customerId);
+        if( customer == null){
+            throw new InformationNotFoundException("Customer with id "+customerId +" was not found");
+        }
+       customer.setPassword(customerObject.getPassword());
+        customer.setAddress(customerObject.getAddress());
+        customer.setLastName(customerObject.getLastName());
+        customer.setFirstName(customerObject.getFirstName());
+        customer.setPhone(customerObject.getPhone());
+        customer.setEmail(customerObject.getEmail());
+        return customerRepository.save(customer);
+    }
+
 
 }
