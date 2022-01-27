@@ -1,5 +1,6 @@
 package com.shavi.shavirestaurant.controller;
 import com.shavi.shavirestaurant.model.Customer;
+import com.shavi.shavirestaurant.model.Nutrition;
 import com.shavi.shavirestaurant.model.request.LoginRequest;
 import com.shavi.shavirestaurant.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping(path = "/auth/users")
+@CrossOrigin
 public class CustomerController {
     private CustomerService customerService ;
     private static final Logger LOGGER = Logger.getLogger(CustomerController.class.getName());
@@ -39,4 +41,9 @@ public class CustomerController {
     public ResponseEntity<?> loginUser(@RequestBody LoginRequest loginRequest){
         return customerService.loginUser(loginRequest);
     }
+
+//    @GetMapping("/customers/nutrition")
+//    public Nutrition getNutrition(){
+//
+//    }
 }

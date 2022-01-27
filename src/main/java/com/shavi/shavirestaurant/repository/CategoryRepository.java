@@ -8,6 +8,8 @@ import java.util.Optional;
 public interface CategoryRepository extends JpaRepository <Category,Long>{
 
     Category findCategoryByCategory(String cat);
+
+    Category findCategoryById(Long categoryId);
 //    Category findByIdAndUserId(Long categoryId, Long id);
 //    Category findByUserIdAndName(Long id, String name);
 
