@@ -37,40 +37,8 @@ public class AdminController {
         return "admin";
     }
 
-    /**
-     *
-     * @return
-     */
-    @GetMapping("/users")
-    public List<Customer> getAllCustomers(){
-        return customerService.getAllCustomer();
-    }
-
-    /**
-     *
-     * @param customerId
-     * @param customer
-     * @return
-     */
-    @PutMapping("/users/{customerId}")
-    public Customer updateCustomer(@PathVariable Long customerId, @RequestBody Customer customer){
-        return customerService.updateCustomer(customerId, customer);
-    }
-    /**
-     *
-     * @param categoryId
-     * @return
-     */
-    @GetMapping("/categories/{categoryId}")
-    public Category getCategory(@PathVariable Long categoryId){
-        return  categoryService.getCategory(categoryId);
-    }
-
-    @GetMapping("/categories")
-    public List<Category> getCategories(){
-        return  categoryService.getCategories();
-    }
-    /**
+    // create meal , category to feed database
+        /**
      *
      * @param category
      * @return
@@ -79,56 +47,102 @@ public class AdminController {
     public Category createCategory(@RequestBody Category category){
        return  categoryService.createCategory(category);
     }
+//    /**
+//     *
+//     * @return
+//     */
+//    @GetMapping("/customers")
+//    public List<Customer> getAllCustomers(){
+//        return customerService.getAllCustomer();
+//    }
+//
+//
+//    /**
+//     *
+//     * @param categoryId
+//     * @return
+//     */
+////    @GetMapping("/categories/{categoryId}")
+////    public Category getCategory(@PathVariable Long categoryId){
+////        return  categoryService.getCategory(categoryId);
+////    }
+//
+////    @GetMapping("/categories")
+////    public List<Category> getCategories(){
+////        return  categoryService.getCategories();
+////    }
 
-    /**
-     *
-     * @param categoryId
-     * @param categoryObject
-     * @return
-     */
-    @PutMapping("/categories/{categoryId}")
-    public Category updateCategory(@PathVariable(value = "categoryId") Long categoryId, @RequestBody Category categoryObject) {
-        return categoryService.updateCategory(categoryId, categoryObject);
-    }
-    @DeleteMapping("/categories/{categoryId}")
-    public String deleteCategory(@PathVariable(value = "categoryId") Long categoryId) {
-        return categoryService.deleteCategory(categoryId);
-    }
-    /**
-     *
-     * @param categoryId
-     * @param meal
-     * @return
-     */
-    @PostMapping("/categories/{categoryId}/meals")
-    public Meal createMeal(
-            @PathVariable(value = "categoryId") Long categoryId,
-            @RequestBody Meal meal
-    ) {
-        return categoryService.createCategoryMeal(categoryId,meal);
-    }
-    @GetMapping("/categories/{categoryId}/meals")
-    public List<Meal> getMeals(@PathVariable(value = "categoryId") Long categoryId) {
-        return categoryService.getCategoryMeals(categoryId);
-    }
-    @PutMapping("/categories/{categoryId}/meals/{mealId}")
-    public  Meal getMeal(@PathVariable(value = "categoryId") Long categoryId, @PathVariable Long mealId ,@RequestBody Meal meal) {
-        return categoryService.updateCategoryMeal(categoryId,mealId,meal);
-    }
-    @GetMapping("/categories/{categoryId}/meals/{mealId}")
-    public  Meal getMeal(@PathVariable(value = "categoryId") Long categoryId, @PathVariable Long mealId) {
-        return categoryService.getCategoryMeal(categoryId,mealId);
-    }
-    @DeleteMapping("/categories/{categoryId}/meals/{mealId}")
-    public  String deleteMeal( @PathVariable Long categoryId, @PathVariable Long mealId) {
-        return categoryService.deleteCategoryMeal(categoryId,mealId);
-    }
-    @GetMapping("/categories/{categoryId}/meals/{mealId}/nutrition")
-    public Nutrition getNutrition(@PathVariable(value = "categoryId") Long categoryId, @PathVariable Long mealId) {
-        return categoryService.getNutrition(categoryId,mealId);
-    }
-    @PutMapping("/categories/{categoryId}/meals/{mealId}/nutrition")
-    public Nutrition addNutrition(@PathVariable(value = "categoryId") Long categoryId, @PathVariable Long mealId, @RequestBody Nutrition nutrition) {
-        return categoryService.createNutrition(categoryId,mealId, nutrition);
-    }
+//
+//    /**
+//     *
+//     * @param categoryId
+//     * @param categoryObject
+//     * @return
+//     */
+//    @PutMapping("/categories/{categoryId}")
+//    public Category updateCategory(@PathVariable(value = "categoryId") Long categoryId, @RequestBody Category categoryObject) {
+//        return categoryService.updateCategory(categoryId, categoryObject);
+//    }
+//    @DeleteMapping("/categories/{categoryId}")
+//    public String deleteCategory(@PathVariable(value = "categoryId") Long categoryId) {
+//        return categoryService.deleteCategory(categoryId);
+//    }
+//    /**
+//     *
+//     * @param categoryId
+//     * @param meal
+//     * @return
+//     */
+//    @PostMapping("/categories/{categoryId}/meals")
+//    public Meal createMeal(
+//            @PathVariable(value = "categoryId") Long categoryId,
+//            @RequestBody Meal meal
+//    ) {
+//        return categoryService.createCategoryMeal(categoryId,meal);
+//    }
+//
+//
+//
+//    /**
+//     *
+//     * @param categoryId
+//     * @param mealId
+//     * @param meal
+//     * @return
+//     */
+//    @PutMapping("/categories/{categoryId}/meals/{mealId}")
+//    public  Meal getMeal(@PathVariable(value = "categoryId") Long categoryId, @PathVariable Long mealId ,@RequestBody Meal meal) {
+//        return categoryService.updateCategoryMeal(categoryId,mealId,meal);
+//    }
+//
+//    /**
+//     *
+//     * @param categoryId
+//     * @param mealId
+//     * @return
+//     */
+//    @DeleteMapping("/categories/{categoryId}/meals/{mealId}")
+//    public  String deleteMeal( @PathVariable Long categoryId, @PathVariable Long mealId) {
+//        return categoryService.deleteCategoryMeal(categoryId,mealId);
+//    }
+//
+//
+//
+//    /**
+//     *
+//     * @param categoryId
+//     * @param mealId
+//     * @param nutrition
+//     * @return
+//     */
+//    @PutMapping("/categories/{categoryId}/meals/{mealId}/nutrition")
+//    public Nutrition addNutrition(@PathVariable(value = "categoryId") Long categoryId, @PathVariable Long mealId, @RequestBody Nutrition nutrition) {
+//        return categoryService.createNutrition(categoryId,mealId, nutrition);
+//    }
+//
+//
+//
+//
+
+
 }

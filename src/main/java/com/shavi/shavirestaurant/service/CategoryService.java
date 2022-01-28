@@ -50,23 +50,23 @@ public class CategoryService {
         return categoryRepository.findCategoryById(id);
     }
 
-//    /**
-//     * -- For admin to create category
-//     * @param categoryObject
-//     * @return
-//     */
-//    public Category createCategory(Category categoryObject) {
-//        System.out.println("service calling createCategory ==>");
-//        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
-//                .getPrincipal();
-//        //if category exist
-//        Category category = categoryRepository.findCategoryByCategory(categoryObject.getCategory());
-//        if (category != null) {
-//            throw new InformationExistsException("category with name " + category.getCategory() + " already exists");
-//        } else {
-//            return categoryRepository.save(categoryObject);
-//        }
-//    }
+    /**
+     * -- For admin to create category
+     * @param categoryObject
+     * @return
+     */
+    public Category createCategory(Category categoryObject) {
+        System.out.println("service calling createCategory ==>");
+        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+        //if category exist
+        Category category = categoryRepository.findCategoryByCategory(categoryObject.getCategory());
+        if (category != null) {
+            throw new InformationExistsException("category with name " + category.getCategory() + " already exists");
+        } else {
+            return categoryRepository.save(categoryObject);
+        }
+    }
 //
 //    /**
 //     *
