@@ -27,37 +27,37 @@ public class MealService {
     public List<Meal> getAllMeals(){
         return mealRepository.findAll();
     }
-
-    /**
-     * <p>Find a specific meal by id</p>
-     * @param mealId
-     * @return
-     */
-    public Meal getMeal(Long mealId){
-        Optional<Meal> meal = mealRepository.findById(mealId);
-        if (meal.isEmpty()){
-            throw new InformationNotFoundException("Meal is not found");
-        }
-        return meal.get();
-    }
-    /**
-     * <p>Find a specific meal by name</p>
-     * @param name
-     * @return
-     */
-    public Meal getMeal(String name){
-        Meal meal = mealRepository.findByName(name);
-        if (meal == null){
-            throw new InformationNotFoundException("Meal is not found");
-        }
-        return meal;
-    }
-    public Meal updateMeal(Long mealId){
-        Optional<Meal> meal = mealRepository.findById(mealId);
-        if (meal.isEmpty()){
-            throw new InformationNotFoundException("Meal is not found");
-        }
-        return mealRepository.save(meal.get());
-    }
+//
+//    /**
+//     * <p>Find a specific meal by id</p>
+//     * @param mealId
+//     * @return
+//     */
+//    public Meal getMeal(Long mealId){
+//        Optional<Meal> meal = mealRepository.findById(mealId);
+//        if (meal.isEmpty()){
+//            throw new InformationNotFoundException("Meal is not found");
+//        }
+//        return meal.get();
+//    }
+//    /**
+//     * <p>Find a specific meal by name</p>
+//     * @param name
+//     * @return
+//     */
+//    public Meal getMeal(String name){
+//        Meal meal = mealRepository.findByName(name);
+//        if (meal == null){
+//            throw new InformationNotFoundException("Meal is not found");
+//        }
+//        return meal;
+//    }
+//    public Meal updateMeal(Long mealId){
+//        Optional<Meal> meal = mealRepository.findById(mealId);
+//        if (meal.isEmpty()){
+//            throw new InformationNotFoundException("Meal is not found");
+//        }
+//        return mealRepository.save(meal.get());
+//    }
 
 }

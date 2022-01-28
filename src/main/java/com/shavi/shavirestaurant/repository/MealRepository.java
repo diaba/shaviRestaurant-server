@@ -15,4 +15,6 @@ public interface MealRepository extends JpaRepository<Meal,Long> {
     Meal findMealByNameAndCategoryId(String name, Long categoryId);
 
     Meal findMealByIdAndCategoryId(Long mealId, Long categoryId);
+
+   // boolean existsOrderListAndName(Long orderId, String name);
 }
