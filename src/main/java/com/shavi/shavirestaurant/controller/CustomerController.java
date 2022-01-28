@@ -17,30 +17,30 @@ import java.util.logging.Logger;
 public class CustomerController {
     private static final Logger LOGGER = Logger.getLogger(CustomerController.class.getName());
     private CustomerService customerService ;
-//    private CategoryService categoryService;
-//    private OrderService orderService;
-//    private CustomerController customerOrderService;
+    private CategoryService categoryService;
+    private OrderService orderService;
+    private CustomerController customerOrderService;
 
-//    @Autowired
-//    public void setCustomerOrderService(CustomerController customerOrderService) {
-//        this.customerOrderService = customerOrderService;
-//    }
+    @Autowired
+    public void setCustomerOrderService(CustomerController customerOrderService) {
+        this.customerOrderService = customerOrderService;
+    }
 
 
 
-//    @Autowired
-//    public void setOrderService(OrderService orderService) {
-//        this.orderService = orderService;
-//    }
-//
+    @Autowired
+    public void setOrderService(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
     @Autowired
     public void setCustomerService(CustomerService customerService) {
         this.customerService = customerService;
     }
-//    @Autowired
-//    public void setCategoryService(CategoryService categoryService) {
-//        this.categoryService = categoryService;
-//    }
+    @Autowired
+    public void setCategoryService(CategoryService categoryService) {
+        this.categoryService = categoryService;
+    }
 
     public String defaultPage(){
         return "Home Page";
@@ -66,7 +66,7 @@ public class CustomerController {
         return customerService.loginUser(loginRequest);
     }
     /**
-     *
+     * <p>Update customer profile</p>
      * @param customer
      * @return
      */
@@ -74,28 +74,33 @@ public class CustomerController {
     public Customer updateCustomer( @RequestBody Customer customer){
         return customerService.updateCustomer(customer);
     }
+
+    /**
+     * <p>View customer profile</p>
+     * @return
+     */
     @GetMapping("/api/customers")
     public Customer getCustomer( ){
         return customerService.getCustomer();
     }
-//    /**
-//     *
-//     * @param categoryId
-//     * @return
-//     */
-//    @GetMapping("/api/categories/{categoryId}")
-//    public Category getCategory(@PathVariable Long categoryId){
-//        return  categoryService.getCategory(categoryId);
-//    }
-//
-//    /**
-//     *
-//     * @return
-//     */
-//    @GetMapping("/api/categories")
-//    public List<Category> getCategories(){
-//        return  categoryService.getCategories();
-//    }
+    /**
+     *
+     * @param categoryId
+     * @return
+     */
+    @GetMapping("/api/categories/{categoryId}")
+    public Category getCategory(@PathVariable Long categoryId){
+        return  categoryService.getCategory(categoryId);
+    }
+
+    /**
+     *
+     * @return
+     */
+    @GetMapping("/api/categories")
+    public List<Category> getCategories(){
+        return  categoryService.getCategories();
+    }
 //
 //
 //    /**
