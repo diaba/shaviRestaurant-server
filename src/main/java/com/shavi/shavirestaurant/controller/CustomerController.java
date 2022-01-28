@@ -101,29 +101,29 @@ public class CustomerController {
     public List<Category> getCategories(){
         return  categoryService.getCategories();
     }
-//
-//
-//    /**
-//     *
-//     * @param categoryId
-//     * @return
-//     */
-//    @GetMapping("/api/categories/{categoryId}/meals")
-//    public List<Meal> getMeals(@PathVariable(value = "categoryId") Long categoryId) {
-//        return categoryService.getCategoryMeals(categoryId);
-//    }
-//
-//    /**
-//     *
-//     * @param categoryId
-//     * @param mealId
-//     * @return
-//     */
-//    @GetMapping("/api/categories/{categoryId}/meals/{mealId}")
-//    public  Meal getMeal(@PathVariable(value = "categoryId") Long categoryId, @PathVariable Long mealId) {
-//        return categoryService.getCategoryMeal(categoryId,mealId);
-//    }
-//
+
+
+    /**
+     *
+     * @param categoryId
+     * @return
+     */
+    @GetMapping("/api/categories/{categoryId}/meals")
+    public List<Meal> getMeals(@PathVariable(value = "categoryId") Long categoryId) {
+        return categoryService.getCategoryMeals(categoryId);
+    }
+
+    /**
+     *
+     * @param categoryId
+     * @param mealId
+     * @return
+     */
+    @GetMapping("/api/categories/{categoryId}/meals/{mealId}")
+    public  Meal getMeal(@PathVariable(value = "categoryId") Long categoryId, @PathVariable Long mealId) {
+        return categoryService.getCategoryMeal(categoryId,mealId);
+    }
+
 //    /**
 //     *
 //     * @param categoryId
@@ -134,7 +134,7 @@ public class CustomerController {
 //    public Nutrition getNutrition(@PathVariable(value = "categoryId") Long categoryId, @PathVariable Long mealId) {
 //        return categoryService.getNutrition(categoryId,mealId);
 //    }
-//
+
 //    /**
 //     *
 //     * @param orderId
