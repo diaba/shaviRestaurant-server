@@ -17,8 +17,16 @@ public class Tracking {
 
     // add order one to one
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "order_id",referencedColumnName = "id")
-    private Order order;
+    @JoinColumn(name = "customerorder_id",referencedColumnName = "id")
+    private CustomerOrder customerOrder;
+
+    public CustomerOrder getCustomerOrder() {
+        return customerOrder;
+    }
+
+    public void setCustomerOrder(CustomerOrder customerOrder) {
+        this.customerOrder = customerOrder;
+    }
 
     public Tracking() {
     }
@@ -39,20 +47,12 @@ public class Tracking {
         this.status = status;
     }
 
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
     @Override
     public String toString() {
         return "Tracking{" +
                 "id=" + id +
                 ", status='" + status + '\'' +
-                ", order=" + order +
+                ", customerOrder=" + customerOrder +
                 '}';
     }
 }
