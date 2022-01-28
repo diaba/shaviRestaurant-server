@@ -104,28 +104,28 @@ public class CategoryService {
 //            return "category with id " + categoryId + " has been successfully deleted";
 //        }
 //    }
-//    /**
-//     *
-//     * @param categoryId
-//     * @param mealObject
-//     * @return
-//     */
-//    public Meal createCategoryMeal(Long categoryId, Meal mealObject) {
-//        System.out.println("service calling createCategoryMeal ==>");
-//        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
-//                .getPrincipal();
-//        Category category = categoryRepository.findCategoryById(categoryId);
-//        if (category == null) {
-//            throw new InformationNotFoundException(
-//                    "category with id " + categoryId + " not belongs to this user or category does not exist");
-//        }
-//        Meal meal = mealRepository.findByName(mealObject.getName());
-//        if (meal != null) {
-//            throw new InformationExistsException("recipe with name " + meal.getName() + " already exists");
-//        }
-//        mealObject.setCategory(category);
-//        return mealRepository.save(mealObject);
-//    }
+    /**
+     *
+     * @param categoryId
+     * @param mealObject
+     * @return
+     */
+    public Meal createCategoryMeal(Long categoryId, Meal mealObject) {
+        System.out.println("service calling createCategoryMeal ==>");
+        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+        Category category = categoryRepository.findCategoryById(categoryId);
+        if (category == null) {
+            throw new InformationNotFoundException(
+                    "category with id " + categoryId + " not belongs to this user or category does not exist");
+        }
+        Meal meal = mealRepository.findByName(mealObject.getName());
+        if (meal != null) {
+            throw new InformationExistsException("recipe with name " + meal.getName() + " already exists");
+        }
+        mealObject.setCategory(category);
+        return mealRepository.save(mealObject);
+    }
 //
     /**
      *

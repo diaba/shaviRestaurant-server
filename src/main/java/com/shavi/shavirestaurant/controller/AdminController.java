@@ -87,19 +87,19 @@ public class AdminController {
 //    public String deleteCategory(@PathVariable(value = "categoryId") Long categoryId) {
 //        return categoryService.deleteCategory(categoryId);
 //    }
-//    /**
-//     *
-//     * @param categoryId
-//     * @param meal
-//     * @return
-//     */
-//    @PostMapping("/categories/{categoryId}/meals")
-//    public Meal createMeal(
-//            @PathVariable(value = "categoryId") Long categoryId,
-//            @RequestBody Meal meal
-//    ) {
-//        return categoryService.createCategoryMeal(categoryId,meal);
-//    }
+    /**
+     *
+     * @param categoryId
+     * @param meal
+     * @return
+     */
+    @PostMapping("/categories/{categoryId}/meals")
+    public Meal createMeal(
+            @PathVariable(value = "categoryId") Long categoryId,
+            @RequestBody Meal meal
+    ) {
+        return categoryService.createCategoryMeal(categoryId,meal);
+    }
 //
 //
 //
