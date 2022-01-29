@@ -1,6 +1,7 @@
 package com.shavi.shavirestaurant.controller;
 import com.shavi.shavirestaurant.model.*;
 import com.shavi.shavirestaurant.model.request.LoginRequest;
+import com.shavi.shavirestaurant.model.request.OrderRequest;
 import com.shavi.shavirestaurant.service.CategoryService;
 import com.shavi.shavirestaurant.service.CustomerService;
 import com.shavi.shavirestaurant.service.OrderService;
@@ -123,7 +124,12 @@ public class CustomerController {
     public  Meal getMeal(@PathVariable(value = "categoryId") Long categoryId, @PathVariable Long mealId) {
         return categoryService.getCategoryMeal(categoryId,mealId);
     }
+@PostMapping ("/api/orders")
+    Order createOrder(@RequestBody OrderRequest  request){
+return orderService.createOrder(request);
+//         return customerOrderService.createOrder(request);
 
+}
 //    /**
 //     *
 //     * @param categoryId
@@ -135,17 +141,10 @@ public class CustomerController {
 //        return categoryService.getNutrition(categoryId,mealId);
 //    }
 
-//    /**
-//     *
-//     * @param orderId
-//     * @param customerId
-//     * @param mealObject
-//     * @return
-//     */
-////    @PutMapping("api/orders/{orderId}/customer/{customerId}")
-////    public Order updateOrder(@PathVariable Long orderId,@PathVariable Long customerId, @RequestBody Order order){
-////        return orderService.updateOrder(orderId,customerId,order);
-////    }
+//    @PutMapping("api/orders/{orderId}/customer/{customerId}")
+//    public Order updateOrder(@PathVariable Long orderId,@PathVariable Long customerId, @RequestBody Order order){
+//        return orderService.updateOrder(orderId,customerId,order);
+//    }
 //
 //
 //    //    api/customer/{customerId}/orders/{orderId}/meal	post

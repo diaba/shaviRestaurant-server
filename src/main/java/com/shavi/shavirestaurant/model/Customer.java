@@ -21,7 +21,7 @@ public class Customer {
     @Column
     private String lastName;
 
-    @Column
+    @Column(nullable = false)
     private String email;
 
     @Column
@@ -30,7 +30,7 @@ public class Customer {
     @Column
     private String phone;
 
-    @Column
+    @Column(nullable = false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 

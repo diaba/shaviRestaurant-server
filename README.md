@@ -36,5 +36,3 @@ Shavi’s Restaurant is an app that allows Shavi’s Restaurant customers to vie
 ##Menu
 ![menu Image](https://github.com/diaba/shaviRestaurant-client/blob/main/wireframes/Home%20-%20items%201.png?raw=true "Project wareframe")
 
-
- 

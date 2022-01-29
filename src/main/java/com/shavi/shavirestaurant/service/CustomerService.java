@@ -96,17 +96,14 @@ public class CustomerService {
 
     /**
      *
-     * @param customerId
      * @param customerObject
      * @return
      */
-    public Customer updateCustomer(Long customerId, Customer customerObject){
+    public Customer updateCustomer( Customer customerObject){
         MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Customer customer = customerRepository.findCustomerById(customerId);
-        if( customer == null){
-            throw new InformationNotFoundException("Customer with id "+customerId +" was not found");
-        }
-       customer.setPassword(customerObject.getPassword());
+
+        Customer customer = customerRepository.findCustomerById(userDetails.getUser().getId());
+        customer.setPassword(customerObject.getPassword());
         customer.setAddress(customerObject.getAddress());
         customer.setLastName(customerObject.getLastName());
         customer.setFirstName(customerObject.getFirstName());
@@ -115,5 +112,8 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
 
-
+    public Customer getCustomer(){
+        MyUserDetails userDetails =(MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return customerRepository.findCustomerById(userDetails.getUser().getId());
+    }
 }

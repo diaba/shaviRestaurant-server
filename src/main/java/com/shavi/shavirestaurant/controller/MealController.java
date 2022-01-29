@@ -22,7 +22,7 @@ public class MealController {
         this.mealService = mealService;
     }
 
-    @GetMapping(("/api/meals"))
+    @GetMapping(("/meals"))
     public List<Meal> getAllMeals(){
         return mealService.getAllMeals();
     }
