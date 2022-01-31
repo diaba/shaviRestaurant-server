@@ -23,7 +23,13 @@ public class OrderService {
     private OrderRepository orderRepository;
     private CustomerOrderRepository customerOrderRepository;
     private MealRepository mealRepository;
+private CustomerOrderService customerOrderService;
 
+
+    @Autowired
+    public void setCustomerOrderService(CustomerOrderService customerOrderService) {
+        this.customerOrderService = customerOrderService;
+    }
 
     @Autowired
     public void setCustomerOrderRepository(CustomerOrderRepository customerOrderRepository) {
@@ -40,75 +46,89 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
-//    /**
-//     * <p>Return all orders from the database</p>
-//     * @return
-//     */
-//    public List<Order>getAllOrders(){
-//        return orderRepository.findAll();
-//    }
-//
-//    /**
-//     * <p>Find a specific order</p>
-//     * @param id
-//     * @return
-//     */
-//    public Optional<Order> getOrder(Long id){
-//        Optional<Order> order = orderRepository.findById(id);
-//        if (order == null){
-//            throw new InformationNotFoundException(" Order not found ");
-//        }
-//        return order;
-//
-//    }
-//
+    /**
+     * <p>Return all orders from the database</p>
+     * @return
+     */
+    public List<Order>getAllOrders(){
+        return orderRepository.findAll();
+    }
+    /**
+     * <p>Return all orders from the database</p>
+     * @return
+     */
+    public List<Order>getOrders(){
+        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Order order = new Order();
+        List<CustomerOrder> orderList = customerOrderRepository.findAllByCustomerId(userDetails.getUser().getId());
+        return orderRepository.findAll();
+    }
+
+    /**
+     * <p>Find a specific order</p>
+     * @param id
+     * @return
+     */
+    public Order getOrder(Long id){
+        Optional<Order> order = orderRepository.findById(id);
+        if (order.isEmpty()){
+            throw new InformationNotFoundException(" Order not found ");
+        }
+        return order.get();
+
+    }
+
     /**
      * <p>Create order with meal and quantity passing</p>
      * @param orderRequest
      * @return
      */
     public Order createOrder(OrderRequest orderRequest){
-        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Order order = new Order();
         Optional<Meal> meal = mealRepository.findById(orderRequest.getMealId());
         if(meal.isEmpty()){
                 throw new InformationNotFoundException("Meal not found");
         }
         order.setMeal(meal.get());
-        CustomerOrder customerOrder = new CustomerOrder();
-        customerOrder.setOrder(order);
-        customerOrder.setCustomer(userDetails.getUser());
-        customerOrder.setDate(new Date().toString());
-        customerOrderRepository.save(customerOrder);
+
         order.setQuantity(orderRequest.getQuantity());
-        return orderRepository.save(order);
+        Order savedOrder = orderRepository.save(order);
+        //save customerOrder
+        CustomerOrder customerOrder = new CustomerOrder();
+        customerOrder.setOrder(savedOrder);
+        customerOrderService.createCustomerOrder(customerOrder);
+        return savedOrder;
     }
-//
-//    /**
-//     * <p>Update order</p>
-//     * @param orderId
-//     * @param orderObject
-//     * @return
-//     */
-//    public Order updateOrder(Long orderId, Order orderObject){
-//        Optional<Order> order = getOrder(orderId);
-//        if (order.isEmpty()){
-//            throw new InformationNotFoundException("Order not found.");
-//        }else{
-//            order.get().setQuantity(orderObject.getQuantity());
-//            order.get().setMeal(orderObject.getMeal());
-//            return orderRepository.save(order.get());
-//        }
-//    }
-//    public String deleteOrder(Long orderId){
-//        Optional<Order> order = getOrder(orderId);
-//        if (order.isEmpty()){
-//            throw new InformationNotFoundException("Order not found.");
-//        }else{
-//            orderRepository.delete(order.get());
-//            return "Order with id: "+orderId +" was successfully deleted";
-//        }
-//    }
+
+    /**
+     * <p>Update order</p>
+     * @param orderId
+     * @param orderObject
+     * @return
+     */
+    public Order updateOrder(Long orderId, Order orderObject){
+        Optional<Order> order = orderRepository.findById(orderId);
+        if (order.isEmpty()){
+            throw new InformationNotFoundException("Order not found.");
+        }else{
+            order.get().setQuantity(orderObject.getQuantity());
+            //order.get().setMeal(orderObject.getMeal());
+            Order updatedOrder = orderRepository.save(order.get());
+            //save customerOrder
+            customerOrderService.updateCustomerOrder(orderId,updatedOrder);
+            return updatedOrder;
+        }
+    }
+    public String deleteOrder(Long orderId){
+        Optional<Order> order = orderRepository.findById(orderId);
+        if (order.isEmpty()){
+            throw new InformationNotFoundException("Order not found.");
+        }else{
+          //  customerOrderService.deleteCustomerOrder(orderId);
+            orderRepository.delete(order.get());
+            return "Order with id: "+orderId +" was successfully deleted";
+        }
+    }
 
 
 }
