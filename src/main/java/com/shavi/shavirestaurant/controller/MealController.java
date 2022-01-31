@@ -27,5 +27,34 @@ public class MealController {
         return mealService.getAllMeals();
     }
 
+    /**
+     *
+     * @param mealId
+     * @return
+     */
+    @GetMapping("/meals/{mealId}")
+    public Meal getMeal(@PathVariable Long mealId){
+        return mealService.getMeal(mealId);
+    }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
+    @GetMapping("/mealByyName/{name}")
+    public Meal getMealByName(@PathVariable String name){
+        return mealService.getMeal(name);
+    }
+
+    /**
+     *
+     * @param mealId
+     * @param meal
+     * @return
+     */
+    @PutMapping("/meals/{mealId}")
+    public Meal updateMeal(@PathVariable Long mealId,@RequestBody Meal meal){
+        return mealService.updateMeal(mealId, meal);
+    }
 }
