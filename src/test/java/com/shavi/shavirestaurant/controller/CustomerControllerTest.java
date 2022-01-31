@@ -9,4 +9,8 @@ class CustomerControllerTest {
     @Test
     void createOrder() {
     }
+
+    @Test
+    void testCreateOrder() {
+    }
 }
