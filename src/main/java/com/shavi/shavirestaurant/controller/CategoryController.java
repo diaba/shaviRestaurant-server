@@ -64,4 +64,23 @@ public class CategoryController {
     public Category createCategory(@RequestBody Category category) {
         return categoryService.createCategory(category);
     }
+
+    /**
+     * @param category
+     * @param categoryId
+     * @return
+     */
+    @PutMapping("/api/categories/{categoryId}")
+    public Category updateCategory(@RequestBody Category category, @PathVariable Long categoryId) {
+        return categoryService.updateCategory(categoryId, category);
+    }
+
+    /**
+     * @param categoryId
+     * @return
+     */
+    @DeleteMapping("/api/categories/{categoryId}")
+    public String deleteCategory(@PathVariable Long categoryId) {
+        return categoryService.deleteCategory(categoryId);
+    }
 }

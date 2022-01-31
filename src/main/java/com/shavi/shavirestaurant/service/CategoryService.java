@@ -33,25 +33,26 @@ public class CategoryService {
 
     /**
      * Get list categories
+     *
      * @return
      */
-   public List<Category> getCategories() {
+    public List<Category> getCategories() {
         System.out.println("service calling getCategories ==>");
-       return categoryRepository.findAll();
+        return categoryRepository.findAll();
     }
 
     /**
-     *
      * @param id
      * @return
      */
-    public  Category getCategory(Long id) {
+    public Category getCategory(Long id) {
         System.out.println("service calling getCategories ==>");
         return categoryRepository.findCategoryById(id);
     }
 
     /**
      * -- For admin to create category
+     *
      * @param categoryObject
      * @return
      */
@@ -67,45 +68,43 @@ public class CategoryService {
             return categoryRepository.save(categoryObject);
         }
     }
-//
-//    /**
-//     *
-//     * @param categoryId
-//     * @param categoryObject
-//     * @return
-//     */
-//    public Category updateCategory(Long categoryId, Category categoryObject) {
-//        System.out.println("service calling updateCategory ==>");
-//        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
-//                .getPrincipal();
-//        Category category = categoryRepository.findCategoryById(categoryId);
-//        if (category == null) {
-//            throw new InformationNotFoundException("category with id " + categoryId + " not found");
-//        } else {
-//            category.setCategory(categoryObject.getCategory());
-//            return categoryRepository.save(category);
-//        }
-//    }
-//
-//    /**
-//     *
-//     * @param categoryId
-//     * @return
-//     */
-//    public String deleteCategory(Long categoryId) {
-//        System.out.println("service calling deleteCategory ==>");
-//        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
-//                .getPrincipal();
-//        Category category = categoryRepository.findCategoryById(categoryId);
-//        if (category == null) {
-//            throw new InformationNotFoundException("category with id " + categoryId + " not found");
-//        } else {
-//            categoryRepository.deleteById(categoryId);
-//            return "category with id " + categoryId + " has been successfully deleted";
-//        }
-//    }
+
     /**
-     *
+     * @param categoryId
+     * @param categoryObject
+     * @return
+     */
+    public Category updateCategory(Long categoryId, Category categoryObject) {
+        System.out.println("service calling updateCategory ==>");
+        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+        Category category = categoryRepository.findCategoryById(categoryId);
+        if (category == null) {
+            throw new InformationNotFoundException("category with id " + categoryId + " not found");
+        } else {
+            category.setCategory(categoryObject.getCategory());
+            return categoryRepository.save(category);
+        }
+    }
+
+    /**
+     * @param categoryId
+     * @return
+     */
+    public String deleteCategory(Long categoryId) {
+        System.out.println("service calling deleteCategory ==>");
+        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+        Category category = categoryRepository.findCategoryById(categoryId);
+        if (category == null) {
+            throw new InformationNotFoundException("category with id " + categoryId + " not found");
+        } else {
+            categoryRepository.deleteById(categoryId);
+            return "category with id " + categoryId + " has been successfully deleted";
+        }
+    }
+
+    /**
      * @param categoryId
      * @param mealObject
      * @return
@@ -127,12 +126,12 @@ public class CategoryService {
         return mealRepository.save(mealObject);
     }
 //
+
     /**
-     *
      * @param categoryId
      * @return
      */
-    public List<Meal> getCategoryMeals(Long categoryId){
+    public List<Meal> getCategoryMeals(Long categoryId) {
         System.out.println("service calling getCategoryMeals ==>");
 
         Category category = categoryRepository.findCategoryById(categoryId);
@@ -143,22 +142,23 @@ public class CategoryService {
         return mealRepository.findByCategoryId(categoryId);
 
     }
-         public Meal getCategoryMeal(Long categoryId, Long mealId){
-            System.out.println("service calling getCategoryMeal ==>");
 
-            Category category = categoryRepository.findCategoryById(categoryId);
-            if (category == null) {
+    public Meal getCategoryMeal(Long categoryId, Long mealId) {
+        System.out.println("service calling getCategoryMeal ==>");
+
+        Category category = categoryRepository.findCategoryById(categoryId);
+        if (category == null) {
+            throw new InformationNotFoundException(
+                    "category with id " + categoryId + " not belongs to this user or category does not exist");
+        } else {
+            Meal meal = mealRepository.findMealByIdAndCategoryId(mealId, categoryId);
+
+            if (meal == null) {
                 throw new InformationNotFoundException(
-                        "category with id " + categoryId + " not belongs to this user or category does not exist");
-            }else{
-                Meal meal = mealRepository.findMealByIdAndCategoryId(mealId, categoryId);
-
-                if (meal == null) {
-                    throw new InformationNotFoundException(
-                            "meal with id " + mealId + " not belongs meal does not exist");
-                }
-                return meal;
+                        "meal with id " + mealId + " not belongs meal does not exist");
             }
+            return meal;
+        }
 
     }
 //    /**
@@ -252,13 +252,7 @@ public class CategoryService {
 //           mealRepository.save(meal);
 //           return meal.getNutrition();
 //        }
-  //  }
-
-
-
-
-
-
+    //  }
 
 
 }
