@@ -1,11 +1,7 @@
 package com.shavi.shavirestaurant.service;
 
-import com.shavi.shavirestaurant.exception.InformationNotFoundException;
 import com.shavi.shavirestaurant.model.CustomerOrder;
-import com.shavi.shavirestaurant.model.Meal;
 import com.shavi.shavirestaurant.model.Order;
-import com.shavi.shavirestaurant.model.Tracking;
-import com.shavi.shavirestaurant.model.request.OrderRequest;
 import com.shavi.shavirestaurant.repository.CustomerOrderRepository;
 import com.shavi.shavirestaurant.repository.MealRepository;
 import com.shavi.shavirestaurant.repository.OrderRepository;
@@ -14,10 +10,7 @@ import com.shavi.shavirestaurant.security.MyUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -47,28 +40,40 @@ public class CustomerOrderService {
         this.trackingRepository = trackingRepository;
     }
 
-
-    public Order createOrder(OrderRequest orderRequest){
+    /**
+     * @param customerOrder
+     */
+    public void createCustomerOrder(CustomerOrder customerOrder) {
         MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-         Order order = new Order();
-         Optional<Meal> meal = mealRepository.findById(orderRequest.getMealId());
-         if(meal.isEmpty()){
-             throw new InformationNotFoundException("Meal not found");
-         }
-         order.setMeal(meal.get());
-         order.setQuantity(orderRequest.getQuantity());
-         //update orderdetails
-      //  CustomerOrder customerOrder = new CustomerOrder();
-        Order newOrder = orderRepository.save(order);
-//        customerOrder.setCustomer(userDetails.getUser());
-//        customerOrder.setOrder(order);
-//        customerOrder.setDate(java.time.LocalDate.now().toString());
-//        customerOrderRepository.save(customerOrder);
-        return newOrder;
+        customerOrder.setCustomer(userDetails.getUser());
+        customerOrder.setDate(java.time.LocalDate.now().toString());
+        customerOrderRepository.save(customerOrder);
+
     }
 
+    /**
+     *
+     * @param orderId
+     * @param orderObject
+     */
+    public void updateCustomerOrder(Long orderId, Order orderObject) {
+        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+        CustomerOrder customerOrder = customerOrderRepository.findByOrderIdAndCustomerId(orderId, userDetails.getUser().getId());
+        customerOrder.setOrder(orderObject);
+        customerOrderRepository.save(customerOrder);
+    }
 
-
+    /**
+     *
+     * @param orderId
+     */
+    public void deleteCustomerOrder(Long orderId) {
+        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+        CustomerOrder customerOrder = customerOrderRepository.findByOrderIdAndCustomerId(orderId, userDetails.getUser().getId());
+        customerOrderRepository.delete(customerOrder);
+    }
 
 //    /**
 //     * <p>Get all order details</p>
@@ -124,19 +129,7 @@ public class CustomerOrderService {
 //            //if meal is in the list increase quantity
 //        }
 //    }
-////    public Order updateCustomerOrder(Long orderId, Long customerID, Order orderObject){
-////        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
-////                .getPrincipal();
-////
-////        Optional<Order> order = order
-////        if (order.isEmpty()){
-////            throw new InformationNotFoundException("Order not found.");
-////        }else{
-////            order.get().setQuantity(orderObject.getQuantity());
-////            order.get().setMeal(orderObject.getMeal());
-////            return orderRepository.save(order.get());
-////        }
-////    }
+
 ////    public String deleteOrder(Long orderId){
 ////        Optional<Order> order = getOrder(orderId);
 ////        if (order.isEmpty()){
@@ -193,28 +186,6 @@ public class CustomerOrderService {
 //    public Order addMealToOrder(){
 //
 //    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
