@@ -17,7 +17,7 @@ import java.util.Optional;
 public class CustomerOrderService {
     private CustomerOrderRepository customerOrderRepository;
     private OrderRepository orderRepository;
-    private TrackingRepository trackingRepository;
+    private TrackingService trackingService;
     private MealRepository mealRepository;
 
     @Autowired
@@ -36,8 +36,8 @@ public class CustomerOrderService {
     }
 
     @Autowired
-    public void setTrackingRepository(TrackingRepository trackingRepository) {
-        this.trackingRepository = trackingRepository;
+    public void setTrackingService(TrackingService trackingService) {
+        this.trackingService = trackingService;
     }
 
     /**
@@ -47,8 +47,9 @@ public class CustomerOrderService {
         MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         customerOrder.setCustomer(userDetails.getUser());
         customerOrder.setDate(java.time.LocalDate.now().toString());
-        customerOrderRepository.save(customerOrder);
-
+        CustomerOrder newCustomerOrder = customerOrderRepository.save(customerOrder);
+        // create tracking
+        trackingService.createTracking(newCustomerOrder);
     }
 
     /**

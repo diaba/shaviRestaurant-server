@@ -19,7 +19,7 @@ public class CustomerController {
     private static final Logger LOGGER = Logger.getLogger(CustomerController.class.getName());
     private CustomerService customerService ;
     private CategoryService categoryService;
-    private OrderService orderService;
+
     private CustomerController customerOrderService;
 
     @Autowired
@@ -29,10 +29,6 @@ public class CustomerController {
 
 
 
-    @Autowired
-    public void setOrderService(OrderService orderService) {
-        this.orderService = orderService;
-    }
 
     @Autowired
     public void setCustomerService(CustomerService customerService) {
@@ -84,52 +80,7 @@ public class CustomerController {
     public Customer getCustomer( ){
         return customerService.getCustomer();
     }
-    /**
-     *
-     * @param categoryId
-     * @return
-     */
-    @GetMapping("/api/categories/{categoryId}")
-    public Category getCategory(@PathVariable Long categoryId){
-        return  categoryService.getCategory(categoryId);
-    }
 
-    /**
-     *
-     * @return
-     */
-    @GetMapping("/api/categories")
-    public List<Category> getCategories(){
-        return  categoryService.getCategories();
-    }
-
-
-    /**
-     *
-     * @param categoryId
-     * @return
-     */
-    @GetMapping("/api/categories/{categoryId}/meals")
-    public List<Meal> getMeals(@PathVariable(value = "categoryId") Long categoryId) {
-        return categoryService.getCategoryMeals(categoryId);
-    }
-
-    /**
-     *
-     * @param categoryId
-     * @param mealId
-     * @return
-     */
-    @GetMapping("/api/categories/{categoryId}/meals/{mealId}")
-    public  Meal getMeal(@PathVariable(value = "categoryId") Long categoryId, @PathVariable Long mealId) {
-        return categoryService.getCategoryMeal(categoryId,mealId);
-    }
-@PostMapping ("/api/orders")
-    Order createOrder(@RequestBody OrderRequest  request){
-return orderService.createOrder(request);
-//         return customerOrderService.createOrder(request);
-
-}
 //    /**
 //     *
 //     * @param categoryId
