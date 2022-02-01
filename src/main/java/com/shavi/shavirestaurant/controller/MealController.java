@@ -32,6 +32,7 @@ public class MealController {
      * @param mealId
      * @return
      */
+
     @GetMapping("/meals/{mealId}")
     public Meal getMeal(@PathVariable Long mealId){
         return mealService.getMeal(mealId);
