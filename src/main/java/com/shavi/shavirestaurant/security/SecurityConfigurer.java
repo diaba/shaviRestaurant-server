@@ -47,7 +47,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                         "/auth/users/login",
                         "/api/meals",
                         "/auth/users/register",
-                        "/api/public-meals/*" ,"/api/public-meals").permitAll()
+                        "/" ,"/api/public-meals").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

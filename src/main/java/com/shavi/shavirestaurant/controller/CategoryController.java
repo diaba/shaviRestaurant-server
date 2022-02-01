@@ -18,6 +18,10 @@ public class CategoryController {
     public void setCategoryService(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
+@GetMapping("/")
+public String hello(){
+        return  "test";
+}
 
     /**
      * @param categoryId
