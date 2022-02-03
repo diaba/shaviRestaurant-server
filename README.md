@@ -40,14 +40,36 @@ My goal is to build a working fullstack application that meets my client require
 #ERD
 
 ![ERD Image](https://github.com/diaba/shaviRestaurant-server/blob/main/ShaviDb.drawio.png?raw=true "Project ERD")
+![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/erd.jpeg?raw=true "Final ERD")
 
-#Wireframes
-##Home
-![home Image](https://github.com/diaba/shaviRestaurant-client/blob/main/wireframes/Home%20-%20item%201%20%E2%80%93%201.png?raw=true "Project wireframe")
-##Checkout
-![checkout Image]( https://github.com/diaba/shaviRestaurant-client/blob/main/wireframes/Home%20-%20Checkout.png?raw=true "Project Start ERD")
-##Menu
-![menu Image](https://github.com/diaba/shaviRestaurant-client/blob/main/wireframes/Home%20-%20items%201.png?raw=true "Project wareframe")
+REST API ENDPOINTS
+
+| Endpoints                                                                        | Methods |
+|----------------------------------------------------------------------------------|---------|
+| auth/users/register                                                              | POST    |
+| auth/users/login                                                                 | POST    |
+| api/customers                                                                    | PUT     |
+| api/customers                                                                    | GET     |
+| api/categories                                                                   | GET     |
+| api/categories/{categoryId}                                                      | GET     |
+| api/categories/{categoryId}/meals/{mealId}                                       | GET     |
+| api/categories/{categoryId}/meals                                                | GET     |
+| api/meals                                                                        | GET     |
+| api/orders                                                                       | POST    |
+| api/orders/{orderId}                                                             | GET     |
+| api/orders                                                                       | GET     |
+| api/orders                                                                       | PUT     |
+| api/orders                                                                       | GET     |
+| api/payments                                                                     | GET     |
+| api/payments/{paymentId}                                                         | GET     |
+| api/payments/{paymentId}                                                         | DELETE  |
+| api/payments/{paymentId}                                                         | POST    |
+| api/payments/{paymentId}                                                         | PUT     |
+| api/delivery/tracking                                                            | GET     |
+| api/customers/{customerId}/customerOrder/{customerOrderId}/delivery/{deliveryId} | PUT     |
+| api/customers/{customerId}/customerOrder/{customerOrderId}/tracking/{trackingId} | GET     |
+| api/customers/{customerId}/customerOrder/{customerOrderId}/tracking/{trackingId} | PUT     |
+
 
 Project Plan
 
