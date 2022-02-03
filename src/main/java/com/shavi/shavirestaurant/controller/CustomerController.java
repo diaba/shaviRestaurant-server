@@ -81,6 +81,10 @@ public class CustomerController {
         return customerService.getCustomer();
     }
 
+    @GetMapping("/api/customerByEmail/{email}")
+    public Customer getCustomerByEmail(@PathVariable String email){
+        return customerService.getUserByEmail(email);
+    }
 //    /**
 //     *
 //     * @param categoryId

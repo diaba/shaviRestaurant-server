@@ -116,4 +116,8 @@ public class CustomerService {
         MyUserDetails userDetails =(MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return customerRepository.findCustomerById(userDetails.getUser().getId());
     }
+
+    public Customer getUserByEmail(String email){
+        return customerRepository.findCustomerByEmail(email);
+    }
 }

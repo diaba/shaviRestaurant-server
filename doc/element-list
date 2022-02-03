@@ -1,0 +1,9 @@
+com.shavi.shavirestaurant
+com.shavi.shavirestaurant.controller
+com.shavi.shavirestaurant.exception
+com.shavi.shavirestaurant.model
+com.shavi.shavirestaurant.model.request
+com.shavi.shavirestaurant.model.response
+com.shavi.shavirestaurant.repository
+com.shavi.shavirestaurant.security
+com.shavi.shavirestaurant.service

@@ -4,8 +4,13 @@
 
 
 #Repos
-- 👨‍💻 Backend  [here](git@github.com:diaba/shaviRestaurant-server.git)
-- 👨‍💻 Frontend  [here](git@github.com:diaba/shaviRestaurant-client.git)
+- 👨‍💻 Backend 
+  - Git url [here](git@github.com:diaba/shaviRestaurant-server.git)
+  - api website [here](http://diaba-env.eba-vem8qkrq.us-east-1.elasticbeanstalk.com/api/meals)
+- 👨‍💻 Frontend 
+  - [here](git@github.com:diaba/shaviRestaurant-client.git)
+  - Git url [here](https://angularbacket.s3.us-east-2.amazonaws.com/)
+  
 
 
 #Description
@@ -51,10 +56,16 @@ errors and resolutions logs
   - Break it down work with parent's table and update the linked table
 - Add server database from AWS
   - Follow validation steps from AWS documentations
+- Dwploy AWS
+  - set SERVER_PORT to 6000
 
 achieved goals
 
 Resources used
+https://www.youtube.com/watch?v=6SadWaJrtnY
 https://www.baeldung.com/spring-boot-angular-web
 https://devcenter.heroku.com/
 https://angular.io
+https:Aws
+https://www.remotestack.io/create-login-ui-template-with-angular-material-design/
+https://jasonwatmore.com/post/2018/10/29/angular-7-user-registration-and-login-example-tutorial

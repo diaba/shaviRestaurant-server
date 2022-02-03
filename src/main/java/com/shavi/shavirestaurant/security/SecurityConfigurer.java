@@ -43,11 +43,16 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(
-                        "/auth/users",
+                        "/api/categories/*",
                         "/auth/users/login",
                         "/api/meals",
+                        "/api/*",
                         "/auth/users/register",
-                        "/" ,"/api/public-meals").permitAll()
+                        "/api/categories/{categoryId}/meals",
+                        "/api/categories/{categoryId}/meals/{mealId}",
+                        "/api/customerByEmail/{email}",
+
+                        "/" ).permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
