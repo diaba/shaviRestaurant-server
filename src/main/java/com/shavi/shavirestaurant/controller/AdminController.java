@@ -1,3 +1,8 @@
+/**
+ *   Create, update user
+ *   Create, update, delete meals
+ *   Update order status
+ */
 package com.shavi.shavirestaurant.controller;
 
 import com.shavi.shavirestaurant.model.Category;
@@ -8,6 +13,7 @@ import com.shavi.shavirestaurant.model.Nutrition;
 import com.shavi.shavirestaurant.service.CategoryService;
 import com.shavi.shavirestaurant.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Description;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +22,12 @@ import java.util.logging.Logger;
 @CrossOrigin
 @RestController
 @RequestMapping(path = "/admin")
+/**
+ * Create, update user
+ * Create, update, delete meals
+ * update order status
+ */
+@Description("Admin controller manage users and meals")
 public class AdminController {
     private CategoryService categoryService;
     private CustomerService customerService;
