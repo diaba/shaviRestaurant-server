@@ -23,7 +23,8 @@ My goal is to build a fully responsive web application that is secured and that 
 
 # User stories
 
-![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/stories.jpg "User stories")
+<p align="left"><img src="https://github.com/diaba/shaviRestaurant-server/blob/main/image/stories.jpg " alt="angular" width="40%" height="40%"/>  </p>
+
 
 -	As a user I need to register so that I can login.
 -	As a customer, I need to login so that I can save my payment information for my next order.
@@ -123,6 +124,16 @@ In the application the customer is given a responsive platform.
 
 
 
+## Project Challenges
+
+![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/challenge.png "Final ERD")
+1. The first coding challenge that took me a significant time to solve was with deploying my backend to AWS. After multiple 
+tries to fix it I request an issue ticket. I found out that I needed to do more configuration on AWS side.
+2. I run to login credentials issues using JWT. I discovered that I did not configure correctly my dependencies.
+
+3. When implementing my backend my biggest challenge was to transfer temporary data without sending it to the server. After
+talking with my project lead I used localstorage functionalities.
+
 ## System Tools Used
 
 |                                                                                                                      |  |
@@ -137,15 +148,6 @@ In the application the customer is given a responsive platform.
 | <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular" width="40" height="40"/>         | Angular
 
 
-## Project Challenges
-
-![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/challenge.png "Final ERD")
-1. The first coding challenge that took me a significant time to solve was with deploying my backend to AWS. After multiple 
-tries to fix it I request an issue ticket. I found out that I needed to do more configuration on AWS side.
-2. I run to login credentials issues using JWT. I discovered that I did not configure correctly my dependencies.
-
-3. When implementing my backend my biggest challenge was to transfer temporary data without sending it to the server. After
-talking with my project lead I used localstorage functionalities.
 
 # Repos
 - 👨‍💻 Backend
@@ -157,7 +159,7 @@ talking with my project lead I used localstorage functionalities.
   
  # Project Documentation
   
-![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/doc.png?raw=true "Final ERD")
+![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/Shavi%20Menu.png "Docs")
 
 #Resources used
 - https://www.youtube.com/watch?v=6SadWaJrtnY
