@@ -63,6 +63,45 @@ The database has endpoints for users and admins, which require proper authentica
 
 In the application the customer is given a responsive platform.
 
+
+## Endpoints
+
+| Endpoints                                                                        | Methods | Access  |  
+|----------------------------------------------------------------------------------|---------|---------|
+| auth/users/register                                                              | POST    | Public  |
+| auth/users/login                                                                 | POST    | Public  |
+| api/customers                                                                    | PUT     | Public  |
+| api/customers                                                                    | GET     | Public  |
+| api/categories                                                                   | GET     | Public  |
+| api/categories/{categoryId}                                                      | GET     | Public  |
+| api/categories/{categoryId}/meals/{mealId}                                       | GET     | Public  |
+| api/categories/{categoryId}/meals                                                | GET     | Public  |
+| api/meals                                                                        | GET     | Public  |
+| api/orders                                                                       | POST    | Private |
+| api/orders/{orderId}                                                             | GET     | Private |
+| api/orders                                                                       | GET     | Private |
+| api/orders                                                                       | PUT     | Private |
+| api/orders                                                                       | GET     | Private |
+| api/payments                                                                     | GET     | Private |
+| api/payments/{paymentId}                                                         | GET     | Private |
+| api/payments/{paymentId}                                                         | DELETE  | Private |
+| api/payments/{paymentId}                                                         | POST    | Private |
+| api/payments/{paymentId}                                                         | PUT     | Private |
+| api/delivery/tracking                                                            | GET     | Public  |
+| api/customers/{customerId}/customerOrder/{customerOrderId}/delivery/{deliveryId} | PUT     | Private |
+| api/customers/{customerId}/customerOrder/{customerOrderId}/tracking/{trackingId} | GET     | Public  |
+| api/customers/{customerId}/customerOrder/{customerOrderId}/tracking/{trackingId} | PUT     | Private |
+
+## Project Challenges
+
+![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/challenge.png "Final ERD")
+1. The first coding challenge that took me a significant time to solve was with deploying my backend to AWS. After multiple 
+tries to fix it I request an issue ticket. I found out that I needed to do more configuration on AWS side.
+2. I run to login credentials issues using JWT. I discovered that I did not configure correctly my dependencies.
+
+3. When implementing my backend my biggest challenge was to transfer temporary data without sending it to the server. After
+talking with my project lead I used localstorage functionalities.
+
 ##### Back-end
 - Java SpringBoot
 - Maven
@@ -95,45 +134,6 @@ In the application the customer is given a responsive platform.
 ![ERD Image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/dependencies.png?raw=true "Project ERD")
 
 
-## Endpoints
-
-| Endpoints                                                                        | Methods | Access  |  
-|----------------------------------------------------------------------------------|---------|---------|
-| auth/users/register                                                              | POST    | Public  |
-| auth/users/login                                                                 | POST    | Public  |
-| api/customers                                                                    | PUT     | Public  |
-| api/customers                                                                    | GET     | Public  |
-| api/categories                                                                   | GET     | Public  |
-| api/categories/{categoryId}                                                      | GET     | Public  |
-| api/categories/{categoryId}/meals/{mealId}                                       | GET     | Public  |
-| api/categories/{categoryId}/meals                                                | GET     | Public  |
-| api/meals                                                                        | GET     | Public  |
-| api/orders                                                                       | POST    | Private |
-| api/orders/{orderId}                                                             | GET     | Private |
-| api/orders                                                                       | GET     | Private |
-| api/orders                                                                       | PUT     | Private |
-| api/orders                                                                       | GET     | Private |
-| api/payments                                                                     | GET     | Private |
-| api/payments/{paymentId}                                                         | GET     | Private |
-| api/payments/{paymentId}                                                         | DELETE  | Private |
-| api/payments/{paymentId}                                                         | POST    | Private |
-| api/payments/{paymentId}                                                         | PUT     | Private |
-| api/delivery/tracking                                                            | GET     | Public  |
-| api/customers/{customerId}/customerOrder/{customerOrderId}/delivery/{deliveryId} | PUT     | Private |
-| api/customers/{customerId}/customerOrder/{customerOrderId}/tracking/{trackingId} | GET     | Public  |
-| api/customers/{customerId}/customerOrder/{customerOrderId}/tracking/{trackingId} | PUT     | Private |
-
-
-
-## Project Challenges
-
-![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/challenge.png "Final ERD")
-1. The first coding challenge that took me a significant time to solve was with deploying my backend to AWS. After multiple 
-tries to fix it I request an issue ticket. I found out that I needed to do more configuration on AWS side.
-2. I run to login credentials issues using JWT. I discovered that I did not configure correctly my dependencies.
-
-3. When implementing my backend my biggest challenge was to transfer temporary data without sending it to the server. After
-talking with my project lead I used localstorage functionalities.
 
 ## System Tools Used
 
