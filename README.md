@@ -5,7 +5,9 @@
 <p align="center"><img src="https://github.com/diaba/shaviRestaurant-server/blob/main/image/mobile.png" alt="angular" width="40%" height="40%"/>  </p>
 
 
+
 #Description
+
 
 Shavi’s Restaurant is an app that allows Shavi’s Restaurant customers to view the restaurant menu. They also can order a meal and choose the deliver method that can be carryout or delivery.
 ## Goals
@@ -44,6 +46,7 @@ My goal is to build a fully responsive web application that is secured and that 
 ![checkout Image]( https://github.com/diaba/shaviRestaurant-client/blob/main/wireframes/Home%20-%20Checkout.png?raw=true "Project Start ERD")
 
 ##Menu
+
 ![menu Image](https://github.com/diaba/shaviRestaurant-client/blob/main/wireframes/Home%20-%20items%201.png?raw=true "Project wareframe")
 
 
@@ -54,6 +57,7 @@ The database has endpoints for users and admins, which require proper authentica
 In the application the customer is given a responsive platform.
 
 ##### Planning
+
 ![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/timeLine.png?raw=true "timeLine")
 ##### Back-end
 - Java SpringBoot
@@ -124,8 +128,7 @@ In the application the customer is given a responsive platform.
 |   <img src="http://assets.tianmaying.com/avatars/90227ff73b68435eb2449571d0258043.png" alt="angular" width="40" height="40"/>                          | Spring Boot
 |  <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/>   | Postman
 | <img align="left" src="https://miro.medium.com/max/4196/1*DWeJXUsnsiciEdHW4xRFRg.png" width="40" height="40">   | Json Web Tokens
-| <img src="https://git.generalassemb.ly/matthewljames/paypal-java-capstone-project/blob/master/images/img_6.png" alt="angular" width="40" height="40"/>  
- | IntelliJ IDEA 17
+| <img src="https://git.generalassemb.ly/matthewljames/paypal-java-capstone-project/blob/master/images/img_6.png" alt="angular" width="40" height="40"/> | IntelliJ IDEA 17
 | <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/>   | Postgres
 | <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> | GitHub 
 | <img src="https://user-images.githubusercontent.com/433659/152461436-b8756e24-6dcb-46dc-ad47-e40c821a7887.png" alt="angular" width="40" height="40"/>     | Figma
