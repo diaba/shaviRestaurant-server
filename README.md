@@ -2,11 +2,11 @@
 <h1 align="center">Capstone Project</h1>
 
 
-<p align="center"><img src="https://github.com/diaba/shaviRestaurant-server/blob/main/image/mobile.png" alt="angular" width="40%" height="40%"/>  </p>
+<p align="center"><img src="https://github.com/diaba/shaviRestaurant-client/blob/dev/src/assets/images/logo.png" alt="angular" width="40%" height="40%"/>  </p>
 
 
 
-#Description
+# Description
 
 
 Shavi’s Restaurant is an app that allows Shavi’s Restaurant customers to view the restaurant menu. They also can order a meal and choose the deliver method that can be carryout or delivery.
@@ -20,8 +20,10 @@ My goal is to build a fully responsive web application that is secured and that 
 - Create my backend application
 - Connect my backend and my frontend
 - Every night work on deployment, document and do some research for next step as needed. 
-#User stories
-![ERD image](https://miro.medium.com/max/9552/1*z1Pzkz6_bF3hTc7r9V7lsA.png "Final ERD")
+
+# User stories
+
+![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/stories.jpg "User stories")
 
 -	As a user I need to register so that I can login.
 -	As a customer, I need to login so that I can save my payment information for my next order.
@@ -33,19 +35,19 @@ My goal is to build a fully responsive web application that is secured and that 
 -	As a customer I need to receive my order confirmation details so that I can track my order.
 -	As a customer I need a responsive website to that I can order using my phone.
 
-#ERD
+# ERD
 
 ![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/erd.jpeg?raw=true "Final ERD")
 
-#Wireframes
+# Wireframes
 
 ![home Image](https://github.com/diaba/shaviRestaurant-client/blob/main/wireframes/Home%20-%20item%201%20%E2%80%93%201.png?raw=true "Project wireframe")
 
-##Checkout
+## Checkout
 
 ![checkout Image]( https://github.com/diaba/shaviRestaurant-client/blob/main/wireframes/Home%20-%20Checkout.png?raw=true "Project Start ERD")
 
-##Menu
+## Menu
 
 ![menu Image](https://github.com/diaba/shaviRestaurant-client/blob/main/wireframes/Home%20-%20items%201.png?raw=true "Project wareframe")
 
@@ -137,7 +139,7 @@ In the application the customer is given a responsive platform.
 
 ## Project Challenges
 
-![ERD image](https://miro.medium.com/max/9552/1*z1Pzkz6_bF3hTc7r9V7lsA.png "Final ERD")
+![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/challenge.png "Final ERD")
 1. The first coding challenge that took me a significant time to solve was with deploying my backend to AWS. After multiple 
 tries to fix it I request an issue ticket. I found out that I needed to do more configuration on AWS side.
 2. I run to login credentials issues using JWT. I discovered that I did not configure correctly my dependencies.
@@ -145,7 +147,7 @@ tries to fix it I request an issue ticket. I found out that I needed to do more 
 3. When implementing my backend my biggest challenge was to transfer temporary data without sending it to the server. After
 talking with my project lead I used localstorage functionalities.
 
-#Repos
+# Repos
 - 👨‍💻 Backend
   - Git url [here](git@github.com:diaba/shaviRestaurant-server.git)
   - api website [here](http://diaba-env.eba-vem8qkrq.us-east-1.elasticbeanstalk.com/api/meals)
@@ -153,7 +155,7 @@ talking with my project lead I used localstorage functionalities.
   - [here](git@github.com:diaba/shaviRestaurant-client.git)
   - Git url [here](https://angularbacket.s3.us-east-2.amazonaws.com/)
   
-  Project Documentation
+ # Project Documentation
   
 ![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/doc.png?raw=true "Final ERD")
 
