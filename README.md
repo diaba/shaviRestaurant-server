@@ -13,6 +13,10 @@ Shavi’s Restaurant is an app that allows Shavi’s Restaurant customers to vie
 ## Goals
 My goal is to build a fully responsive web application that is secured and that meets my client requirement.
 
+##### Planning
+
+![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/timeLine.png?raw=true "timeLine")
+
 ## Approch
 - Provide a user experience study
 - Create a full prototype
@@ -59,9 +63,6 @@ The database has endpoints for users and admins, which require proper authentica
 
 In the application the customer is given a responsive platform.
 
-##### Planning
-
-![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/timeLine.png?raw=true "timeLine")
 ##### Back-end
 - Java SpringBoot
 - Maven
@@ -161,7 +162,7 @@ talking with my project lead I used localstorage functionalities.
   
 ![ERD image](https://github.com/diaba/shaviRestaurant-server/blob/main/image/Shavi%20Menu.png "Docs")
 
-#Resources used
+# Resources used
 - https://www.youtube.com/watch?v=6SadWaJrtnY
 - https://www.baeldung.com/spring-boot-angular-web
 - https://devcenter.heroku.com/
